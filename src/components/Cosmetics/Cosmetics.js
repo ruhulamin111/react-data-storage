@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Item from '../Item/item';
 
 const Cosmetics = () => {
+    const [cosmetics, setCosmetics] = useState([]);
+    useEffect(() => {
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => setCosmetics(data))
+    }, [])
+
     return (
         <div>
-            <h2>Hello world</h2>
+            {
+                cosmetics.map(cosmetic => <Item
+                    key={cosmetic.id}
+                    cosmetic={cosmetic}
+                ></Item>)
+            }
         </div>
     );
 };
