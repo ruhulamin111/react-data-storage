@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/item';
+import './Cosmetics.css'
 
 const Cosmetics = () => {
     const [cosmetics, setCosmetics] = useState([]);
@@ -10,7 +11,7 @@ const Cosmetics = () => {
     }, [])
 
     return (
-        <div>
+        <div className='cosmetic'>
             {
                 cosmetics.map(cosmetic => <Item
                     key={cosmetic.id}
