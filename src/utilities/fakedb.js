@@ -1,12 +1,24 @@
 const fakeDb = (id) => {
-    const quantity = localStorage.getItem(id)
-    if (quantity) {
-        const newQuantity = parseInt(quantity) + 1;
-        localStorage.setItem(id, newQuantity)
+    let shoppintCart;
+
+    const storedCart = localStorage.getItem('shopping-cart');
+    if (storedCart) {
+        shoppintCart = JSON.parse(storedCart);
     }
     else {
-        const quantity = localStorage.setItem(id, 1)
+        shoppintCart = {};
     }
+
+    const quantity = shoppintCart[id];
+    if (quantity) {
+        const newQuantity = quantity + 1;
+        shoppintCart[id] = newQuantity;
+    }
+    else {
+        shoppintCart[id] = 1;
+    }
+
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppintCart))
 }
 
 export { fakeDb };

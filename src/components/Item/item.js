@@ -11,8 +11,8 @@ const item = ({ cosmetic }) => {
     return (
         <div className='item'>
             <p>Name: <b>{name}</b></p>
-            <p>Price: <b>{price}</b></p>
             <p>Company: <b>{company}</b></p>
+            <p>Price: <b>{price}</b></p>
             <button onClick={() => addToCart(id)}>Add to Cart</button>
 
         </div>
