@@ -7,8 +7,7 @@ const Shoe = () => {
     const shopping = sum(bata, apex);
     return (
         <div>
-            <p><b>Shoe Total Price</b></p>
-            <p>Total: <b>{shopping}</b></p>
+            <h2>Shoe Mart Shopping</h2>
         </div>
     );
 };
