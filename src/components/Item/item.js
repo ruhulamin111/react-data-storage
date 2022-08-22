@@ -1,11 +1,17 @@
 import React from 'react';
-import { fakeDb } from '../../utilities/fakedb';
+import { addToDb } from '../../utilities/addToDb';
+import { removeFromDb } from '../../utilities/fakedb';
 import './item.css'
 
 const item = ({ cosmetic }) => {
     const { id, name, price, company } = cosmetic;
+
     const addToCart = (id) => {
-        fakeDb(id)
+        addToDb(id)
+    }
+
+    const removeFromCart = id => {
+        removeFromDb(id)
     }
 
     return (
@@ -14,6 +20,7 @@ const item = ({ cosmetic }) => {
             <p>Company: <b>{company}</b></p>
             <p>Price: <b>{price}</b></p>
             <button onClick={() => addToCart(id)}>Add to Cart</button>
+            <button onClick={() => removeFromCart(id)}>Add to Cart</button>
 
         </div>
     );

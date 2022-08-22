@@ -1,4 +1,4 @@
-const fakeDb = (id) => {
+const addToDb = (id) => {
     let shoppintCart;
 
     const storedCart = localStorage.getItem('shopping-cart');
@@ -18,7 +18,20 @@ const fakeDb = (id) => {
         shoppintCart[id] = 1;
     }
 
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppintCart))
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppintCart));
+
 }
 
-export { fakeDb };
+const removeFromDb = (id) => {
+
+}
+
+const deleteShoppingCart = () => {
+    localStorage.removeItem('shopping-cart');
+}
+
+export {
+    addToDb,
+    removeFromDb,
+    deleteShoppingCart
+};
