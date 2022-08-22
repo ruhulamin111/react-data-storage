@@ -23,6 +23,14 @@ const addToDb = (id) => {
 }
 
 const removeFromDb = (id) => {
+    const storedCart = localStorage.getItem('shopping-cart');
+    if (storedCart) {
+        const shoppintCart = JSON.parse(storedCart);
+        if (id in shoppintCart) {
+            delete shoppintCart[id];
+            localStorage.setItem('shopping-cart', JSON.stringify(shoppintCart));
+        }
+    }
 
 }
 
